@@ -43,6 +43,7 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/feed', require('./routes/feed'))
 app.use('/follow', require('./routes/follow'))
+app.use('/account', require('./routes/account'))
 
 // Start server
 app.listen(PORT, () => {

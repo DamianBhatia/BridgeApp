@@ -1,4 +1,3 @@
-<h1>Hello {{username}}!</h1>
 <form action="/follow/add" method="POST">
     <div>
         <label for="profileName">Enter user to follow</label>
@@ -18,21 +17,4 @@
 </form>
 
 <a href="/auth/logout">Logout</a>
-
-<div>
-    <h2>Users you're following:</h2>
-    {{#each following}}
-        <h3>{{{this}}}</h3>
-    {{else}}
-        <h3>You are not currently following anybody</h3>
-    {{/each}}
-</div>
-
-<div>
-    <h2>Users that are following you:</h2>
-    {{#each followers}}
-        <h3>{{{this}}}</h3>
-    {{else}}
-        <h3>Nobody is currently following you</h3>
-    {{/each}}
-</div>
+<a href="/account/{{_id}}">Account</a>
