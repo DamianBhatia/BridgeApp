@@ -1,0 +1,38 @@
+<h1>Hello {{username}}!</h1>
+<form action="/follow/add" method="POST">
+    <div>
+        <label for="profileName">Enter user to follow</label>
+        <input type="text" id="profileName" name="profileName">
+    </div>
+
+    <input type="submit" value="Follow">
+</form>
+
+<form action="/follow/remove" method="POST">
+    <div>
+        <label for="profileName">Enter user to unfollow</label>
+        <input type="text" id="profileName" name="profileName">
+    </div>
+
+    <input type="submit" value="Unfollow">
+</form>
+
+<a href="/auth/logout">Logout</a>
+
+<div>
+    <h2>Users you're following:</h2>
+    {{#each following}}
+        <h3>{{{this}}}</h3>
+    {{else}}
+        <h3>You are not currently following anybody</h3>
+    {{/each}}
+</div>
+
+<div>
+    <h2>Users that are following you:</h2>
+    {{#each followers}}
+        <h3>{{{this}}}</h3>
+    {{else}}
+        <h3>Nobody is currently following you</h3>
+    {{/each}}
+</div>
