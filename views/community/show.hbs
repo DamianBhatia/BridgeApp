@@ -1,0 +1,12 @@
+<h1>Welcome to {{name}}!</h1>
+
+<a href="/community/{{_id}}/new">New Post</a>
+
+<h2>Posts</h2>
+{{#each posts}}
+    <div>
+        <a href="/post/{{_id}}">{{title}}</a>
+    </div>
+{{else}}
+    <h3>This community has no posts</h3>
+{{/each}}

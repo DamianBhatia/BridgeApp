@@ -44,6 +44,9 @@ app.use('/auth', require('./routes/auth'))
 app.use('/feed', require('./routes/feed'))
 app.use('/follow', require('./routes/follow'))
 app.use('/account', require('./routes/account'))
+app.use('/community', require('./routes/community'))
+app.use('/post', require('./routes/post'))
+app.use('/search', require('./routes/search'))
 
 // Start server
 app.listen(PORT, () => {

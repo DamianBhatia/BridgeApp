@@ -1,30 +1,27 @@
 const mongoose = require('mongoose')
 
-// User Schema 
-const UserSchema = new mongoose.Schema({
-    username: {
+// Post Schema 
+const PostSchema = new mongoose.Schema({
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
+    title: {
         type: String,
         required: true
     },
-    email: {
+    body: {
         type: String,
         required: true
     },
-    password: {
-        type: String,
-        required: true
-    },
-    following: [{
+    replies:  [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Reply"
+    }],
+    likes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
-    }],
-    followers:  [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }],
-    communities:  [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Community"
     }],
     createdAt: {
         type: Date,
@@ -32,4 +29,4 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('Post', PostSchema)
