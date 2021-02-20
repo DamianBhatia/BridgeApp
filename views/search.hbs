@@ -1,0 +1,19 @@
+<form action="/search/community" method="POST">
+    <label for="community">Search for a community</label>
+    <input type="text" id="community" name="community">
+    <input type="submit" value="Search">
+</form>
+
+<h1>Search results for "{{{search}}}"</h1>
+
+{{#each results}}
+    <h2>{{name}}</h2>
+    <h3>- {{description}}</h3>
+    <h3>- {{members.length}} members</h3>
+    <h3>- {{posts.length}} posts</h3>
+    <form action="/community/subscribe/{{_id}}" method="POST">
+        <input type="submit" value="subscribe">
+    </form>
+{{else}}
+    <h2>No results</h2>
+{{/each}}

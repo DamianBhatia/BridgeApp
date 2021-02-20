@@ -1,0 +1,22 @@
+<h2>{{{title}}}</h2>
+<h5>@{{{owner.username}}}</h5>
+<p>{{{body}}}</p>
+<h3>{{{likes.length}}} likes</h3>
+<form action="/post/{{_id}}/like" method="POST">
+    <input type="submit" value="Like">
+</form>
+
+<div>
+        <h3>Replies</h3>
+        {{#each replies}}
+            <h4>@{{owner.username}}</h4>
+            <p>{{{body}}}</p>
+        {{else}}
+            <h4>This post has no replies</h4>
+        {{/each}}
+        <form action="/post/{{_id}}/reply" method="POST">
+            <label for="reply">Reply:</label>
+            <input type="text" name="reply">
+            <input type="submit" value="reply">
+        </form>
+</div>

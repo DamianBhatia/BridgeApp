@@ -16,5 +16,21 @@
     <input type="submit" value="Unfollow">
 </form>
 
-<a href="/auth/logout">Logout</a>
-<a href="/account/{{_id}}">Account</a>
+<form action="/search/community" method="POST">
+    <label for="community">Search for a community</label>
+    <input type="text" id="community" name="community">
+    <input type="submit" value="Search">
+</form>
+
+<a href="/auth/logout">Logout</a><br>
+<a href="/account/{{_id}}">Account</a><br>
+<a href="/community/new">New Community</a><br>
+
+<h1>My Communities</h1>
+{{#each communities}}
+    <div>
+        <a href="/community/{{_id}}">{{{name}}} ({{{status}}})</a>
+    </div>
+{{else}}
+    <h2>You are not subscribed to any communities</h2>
+{{/each}}
