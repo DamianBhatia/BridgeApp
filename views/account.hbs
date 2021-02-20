@@ -1,0 +1,19 @@
+<h1>{{username}}</h1>
+
+<div>
+    <h2>Following: {{{following.length}}}</h2>
+    {{#each following}}
+        <h3>{{{this}}}</h3>
+    {{else}}
+        <h3>You are not currently following anybody</h3>
+    {{/each}}
+</div>
+
+<div>
+    <h2>Followers: {{followers.length}}</h2>
+    {{#each followers}}
+        <h3>{{{this}}}</h3>
+    {{else}}
+        <h3>Nobody is currently following you</h3>
+    {{/each}}
+</div>
