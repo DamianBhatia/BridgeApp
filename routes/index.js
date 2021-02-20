@@ -11,7 +11,7 @@ router.get('/', ensureGuest, (req, res) => {
 })
 
 // @desc    Register Page
-// @route   GET /
+// @route   GET /register
 router.get('/register', ensureGuest, (req, res) => {
     res.render('register', {
         layout: 'login'
