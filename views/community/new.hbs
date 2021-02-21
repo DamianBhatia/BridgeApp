@@ -1,21 +1,27 @@
 <form action="/community/create" method="POST">
     <h4>Create a new community</h4>
-    <div>
+    <div class="input-field">
         <label for="name">Community Name:</label>
-        <input type="text" name="name">
+        <input type="text" name="name" required autocomplete="off">
     </div>
-    <div>
+
+    <div class="input-field">
         <label for="description">Description:</label>
-        <input type="text" name="description"></input>
+        <input type="text" name="description" required autocomplete="off"></input>
     </div>
-    <div>
-        <label for="status">Status</label>
-        <select name="status">
-            <option value="public">Open to public</option>
-            <option value="private">Invite only</option>
-        </select>
+
+    <div class="row">
+        <div class="input-field">
+            <select name="status" id="status">
+                <option value="public" selected>Open to public</option>
+                <option value="private">Invite only</option>
+            </select>
+            <label for="status">Status</label>
+        </div>
     </div>
-    <div>
-        <input type="submit" value="Create">
+
+    <div class="row">
+        <input type="submit" value="Create" class="btn cyan">
+        <a href="/feed" class="btn red">Cancel</a>
     </div>
 </form>

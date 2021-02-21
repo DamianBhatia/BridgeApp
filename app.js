@@ -21,8 +21,11 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname, 'public'))) // Static folder
 
+// Handlebar helpers
+const { formatDate } = require('./helpers/hbs')
+
 // Templating engine
-app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('.hbs', exphbs({ helpers: { formatDate }, defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
 // Session and passport

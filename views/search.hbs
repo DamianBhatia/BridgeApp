@@ -1,19 +1,57 @@
 <form action="/search/community" method="POST">
-    <label for="community">Search for a community</label>
-    <input type="text" id="community" name="community">
-    <input type="submit" value="Search">
+    <div class="input-field right-align">
+        <label for="community">Search</label>
+        <input type="text" id="community" name="community" autocomplete="off">
+        <input type="submit" value="Search" class="btn cyan lighten-2">
+    </div>
 </form>
 
+{{#if search}}
 <h1>Search results for "{{{search}}}"</h1>
+{{/if}}
 
+<h3>Users</h3>
+{{#each following_users}}
+<ul class="collection">
+    <li class="collection-item avatar">
+        <i class="fas fa-user-circle circle"></i>
+        <span class="title community-title" style="font-size: 1.5rem !important;">{{{username}}}</span>
+        <p>{{{followers.length}}} followers {{{following.length}}} following</p>
+        <form action="/follow/remove/{{_id}}" method="POST" class="secondary-content">
+            <input type="submit" value="unfollow" class="btn red darken-1">
+        </form>
+    </li>
+</ul>
+{{/each}}
+
+{{#each notfollowing_users}}
+<ul class="collection">
+    <li class="collection-item avatar">
+        <i class="fas fa-user-circle circle"></i>
+        <span class="title community-title" style="font-size: 1.5rem !important;">{{{username}}}</span>
+        <p>{{{followers.length}}} followers {{{following.length}}} following</p>
+        <form action="/follow/add/{{_id}}" method="POST" class="secondary-content">
+            <input type="submit" value="follow" class="btn cyan darken-1">
+        </form>
+    </li>
+</ul>
+{{/each}}
+
+<h3>Communities</h3>
 {{#each results}}
-    <h2>{{name}}</h2>
-    <h3>- {{description}}</h3>
-    <h3>- {{members.length}} members</h3>
-    <h3>- {{posts.length}} posts</h3>
-    <form action="/community/subscribe/{{_id}}" method="POST">
-        <input type="submit" value="subscribe">
-    </form>
+<ul class="collection">
+    <li class="collection-item avatar">
+        <i class="fas fa-user-friends circle"></i>
+        <span class="title community-title" style="font-size: 1.5rem !important;">{{{name}}}</span>
+        <span>{{{members.length}}} members {{{posts.length}}} posts</span>
+        <p class="truncate">{{{description}}}</p>
+        <div class="divider"></div>
+        <p>{{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}}</p>
+        <form action="/community/subscribe/{{_id}}" method="POST" class="secondary-content">
+            <input type="submit" value="subscribe" class="btn cyan darken-1">
+        </form>
+    </li>
+</ul>
 {{else}}
-    <h2>No results</h2>
+<h2>No results</h2>
 {{/each}}

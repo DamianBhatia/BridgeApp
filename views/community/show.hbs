@@ -1,12 +1,19 @@
-<h1>Welcome to {{name}}!</h1>
-
-<a href="/community/{{_id}}/new">New Post</a>
-
-<h2>Posts</h2>
-{{#each posts}}
-    <div>
-        <a href="/post/{{_id}}">{{title}}</a>
-    </div>
-{{else}}
-    <h3>This community has no posts</h3>
-{{/each}}
+<div>
+    <h1>Welcome to {{name}}!</h1>
+    <ul class="collection">
+        {{#each posts}}
+        <li class="collection-item avatar">
+            <i class="fas fa-user-friends circle"></i>
+            <span class="title community-title" style="font-size: 1.5rem !important;">{{{title}}}</span>
+            <span>{{{likes.length}}} likes {{{replies.length}}} replies</span>
+            <p class="truncate">{{{body}}}</p>
+            <div class="divider"></div>
+            <p>{{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}}</p>
+            <a href="/post/{{_id}}" class="secondary-content"><i class="fas fa-chevron-right chevron"
+                    style="font-size: 1.8rem !important; color: #80deea;"></i></a>
+        </li>
+        {{else}}
+        <h2 class="center-align">This community has no posts</h2>
+        {{/each}}
+    </ul>
+</div>

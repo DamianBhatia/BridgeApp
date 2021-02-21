@@ -1,41 +1,16 @@
-{{!-- <form action="/follow/add" method="POST">
-    <div>
-        <label for="profileName">Enter user to follow</label>
-        <input type="text" id="profileName" name="profileName">
-    </div>
-
-    <input type="submit" value="Follow">
-</form>
-
-<form action="/follow/remove" method="POST">
-    <div>
-        <label for="profileName">Enter user to unfollow</label>
-        <input type="text" id="profileName" name="profileName">
-    </div>
-
-    <input type="submit" value="Unfollow">
-</form>
-
-<form action="/search/community" method="POST">
-    <label for="community">Search for a community</label>
-    <input type="text" id="community" name="community">
-    <input type="submit" value="Search">
-</form>
-
-<a href="/community/new">New Community</a><br> --}}
 <div>
     <h1>My Communities</h1>
     <ul class="collection">
         {{#each communities}}
         <li class="collection-item avatar">
-                <i class="fas fa-user-friends circle"></i>
-                <span class="title community-title">{{{name}}} ({{{status}}})</span>
-                <span>{{{members.length}}} members {{{posts.length}}} posts</span>
-                <p class="truncate">{{{description}}}</p>
-                <a href="/community/{{_id}}" class="secondary-content"><i class="fas fa-chevron-right chevron"></i></a>
+            <i class="fas fa-user-friends circle"></i>
+            <span class="title community-title">{{{name}}} ({{{status}}})</span>
+            <span>{{{members.length}}} members {{{posts.length}}} posts</span>
+            <p class="truncate">{{{description}}}</p>
+            <a href="/community/{{_id}}" class="secondary-content"><i class="fas fa-chevron-right chevron"></i></a>
         </li>
         {{else}}
-        <h2>You are not subscribed to any communities</h2>
+        <h2 class="center-align">You are not subscribed to any communities</h2>
         {{/each}}
     </ul>
 </div>

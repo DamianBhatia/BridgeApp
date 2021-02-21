@@ -6,12 +6,12 @@ const User = require('../models/User')
 
 // @desc    Follow another user
 // @route   POST /follow/add
-router.post('/add', ensureAuth, async (req, res) => {
+router.post('/add/:id', ensureAuth, async (req, res) => {
    try {
         // Cannot follow yourself
-        if(req.body.profileName === req.user.username) return res.redirect('/feed')
+        if(req.params.id === req.user._id) return res.redirect('/feed')
 
-        const userToFollow = await User.findOne({ username: req.body.profileName }).lean()
+        const userToFollow = await User.findOne({ _id: req.params.id }).lean()
         if(!userToFollow) {
             console.log('User not found')
             return res.redirect('/feed')
@@ -35,7 +35,7 @@ router.post('/add', ensureAuth, async (req, res) => {
             }
         })
 
-        return res.redirect('/feed')
+        return res.redirect('/search/community')
    } catch(err) {
        console.error(err)
    }
@@ -44,12 +44,12 @@ router.post('/add', ensureAuth, async (req, res) => {
 
 //@desc     Unfollow a user
 //@route    POST follow/remove
-router.post('/remove', async (req, res) => {
+router.post('/remove/:id', async (req, res) => {
     try {
         // Cannot unfollow yourself
-        if(req.body.profileName === req.user.username) return res.redirect('/feed')
+        if(req.params.id === req.user._id) return res.redirect('/feed')
 
-        const userToFollow = await User.findOne({ username: req.body.profileName }).lean()
+        const userToFollow = await User.findOne({ _id: req.params.id }).lean()
         if(!userToFollow) {
             console.log('User not found')
             return res.redirect('/feed')
@@ -73,7 +73,7 @@ router.post('/remove', async (req, res) => {
             }
         })
 
-        return res.redirect('/feed')
+        return res.redirect('/search/community')
    } catch(err) {
        console.error(err)
    }

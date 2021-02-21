@@ -9,7 +9,7 @@ const Post = require('../models/Post')
 // @route   GET /community/new
 router.get('/new', ensureAuth, async (req, res) => {
     res.render('community/new', {
-        layout: 'feed',
+        layout: 'account',
         _id: req.user._id
     })
 })
@@ -61,7 +61,7 @@ router.get('/:commID', ensureAuth, async (req, res) => {
 
     if(!community) return res.redirect('/feed') // Community does not exist
 
-    community.layout = 'feed'
+    community.layout = 'community'
 
     res.render('community/show', community)
 })
@@ -72,7 +72,7 @@ router.get('/:commID', ensureAuth, async (req, res) => {
 router.get('/:commID/new', ensureAuth, (req, res) => {
 
     res.render('post/new', {
-        layout: 'feed',
+        layout: 'account',
         _id: req.params.commID
     })
 })

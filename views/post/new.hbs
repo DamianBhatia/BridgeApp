@@ -1,14 +1,17 @@
 <form action="/community/{{_id}}/create" method="POST">
     <h4>Create a new post</h4>
-    <div>
+    <div class="input-field">
         <label for="name">Title:</label>
-        <input type="text" name="title">
+        <input type="text" name="title" autocomplete="off">
     </div>
-    <div>
+
+    <div class="input-field">
         <label for="description">Content:</label>
-        <input type="text" name="body"></input>
+        <input type="text" name="body" autocomplete="off"></input>
     </div>
-    <div>
-        <input type="submit" value="Post">
+
+    <div class="input-field">
+        <input type="submit" value="Post" class="btn cyan">
+        <a href="/community/{{_id}}" class="btn red">Cancel</a>
     </div>
 </form>

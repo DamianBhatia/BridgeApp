@@ -45,7 +45,7 @@ router.get('/:postID', ensureAuth, async (req, res) => {
 
     if(!post) return res.render('/error/404')
     
-    post.layout = 'feed'
+    post.layout = 'post'
 
     res.render('post/show', post)
 })
