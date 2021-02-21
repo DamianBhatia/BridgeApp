@@ -1,4 +1,4 @@
-<form action="/follow/add" method="POST">
+{{!-- <form action="/follow/add" method="POST">
     <div>
         <label for="profileName">Enter user to follow</label>
         <input type="text" id="profileName" name="profileName">
@@ -22,15 +22,20 @@
     <input type="submit" value="Search">
 </form>
 
-<a href="/auth/logout">Logout</a><br>
-<a href="/account/{{_id}}">Account</a><br>
-<a href="/community/new">New Community</a><br>
-
-<h1>My Communities</h1>
-{{#each communities}}
-    <div>
-        <a href="/community/{{_id}}">{{{name}}} ({{{status}}})</a>
-    </div>
-{{else}}
-    <h2>You are not subscribed to any communities</h2>
-{{/each}}
+<a href="/community/new">New Community</a><br> --}}
+<div>
+    <h1>My Communities</h1>
+    <ul class="collection">
+        {{#each communities}}
+        <li class="collection-item avatar">
+                <i class="fas fa-user-friends circle"></i>
+                <span class="title community-title">{{{name}}} ({{{status}}})</span>
+                <span>{{{members.length}}} members {{{posts.length}}} posts</span>
+                <p class="truncate">{{{description}}}</p>
+                <a href="/community/{{_id}}" class="secondary-content"><i class="fas fa-chevron-right chevron"></i></a>
+        </li>
+        {{else}}
+        <h2>You are not subscribed to any communities</h2>
+        {{/each}}
+    </ul>
+</div>
