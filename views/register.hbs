@@ -1,19 +1,29 @@
-<form action="/auth/register" method="POST">
-    <div>
-        <label for="username">Username</label>
-        <input type="username" id="username" name="username">
-    </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-    </div>
-    <div>
-        <input type="submit" value="Register">
-    </div>
+<div class="row">
+    <div class="center-align col xl8 l10 m6 s8 offset-xl2 offset-l1 offset-m3 offset-s2">
+        <div class="">
+            <h5 class="">Register</h5>
 
-    <p>Already have an account? <a href="/">Login here</a></p>
-</form>
+            <form action="/auth/register" method="POST">
+                <div class="input-field">
+                    <input type="text" id="username" name="username" required>
+                    <label for="username">Username</label>
+                </div>
+
+                <div class="input-field">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="input-field">
+                    <input type="submit" value="Register" class="black-text cyan lighten-4 btn">
+                </div>
+
+                <p>Already have an account? <a href="/">Login here</a></p>
+        </div>
+    </div>
+</div>

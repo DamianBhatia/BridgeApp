@@ -1,0 +1,32 @@
+.login {
+    overflow: hidden;
+}
+
+.left-login {
+    display: grid;
+    height: 100vh;
+    align-content: center;
+    background-image: url('/images/bridge.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title {
+    color: #2e5a53;
+    font-size: 6rem;
+}
+
+.right-login {
+    display: grid;
+    height: 100vh;
+    align-content: center;
+}
+
+.community-title {
+    font-size: 1.5rem !important;
+}
+
+.chevron {
+    font-size: 1.5rem !important;
+    color: #80deea;
+}
