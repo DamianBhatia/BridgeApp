@@ -9,13 +9,12 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
     <link rel="stylesheet" href="css/styles.css">
-    <title>Bridge.</title>
+    <title>Search</title>
 </head>
 
 <body>
 
     {{> _navbar}}
-    {{> _add_community_btn}}
     
     <div class="container">
         {{{body}}}
@@ -24,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelectorAll('select'))
     </script>
 </body>
 

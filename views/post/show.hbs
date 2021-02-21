@@ -1,22 +1,35 @@
-<h2>{{{title}}}</h2>
-<h5>@{{{owner.username}}}</h5>
-<p>{{{body}}}</p>
-<h3>{{{likes.length}}} likes</h3>
-<form action="/post/{{_id}}/like" method="POST">
-    <input type="submit" value="Like">
+<div class="row">
+    <h2>{{{title}}}</h2>
+    <h6 class="right-align" style="color: gray;">Owner: @{{{owner.username}}}</h6>
+    <p class="right-align" style="color: gray;">Posted: {{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}}</p>
+</div>
+
+<h3>{{{body}}}</h3>
+<h6 class="right-align">{{{likes.length}}} likes</h6>
+<form action="/post/{{_id}}/like" method="POST" class="right-align">
+    <input type="submit" value="Like" class="btn black-text cyan lighten-4">
 </form>
 
-<div>
-        <h3>Replies</h3>
-        {{#each replies}}
-            <h4>@{{owner.username}}</h4>
-            <p>{{{body}}}</p>
-        {{else}}
-            <h4>This post has no replies</h4>
-        {{/each}}
-        <form action="/post/{{_id}}/reply" method="POST">
+<div class="row">
+
+    <form action="/post/{{_id}}/reply" method="POST" class="right-align">
+        <div class="input-field">
             <label for="reply">Reply:</label>
-            <input type="text" name="reply">
-            <input type="submit" value="reply">
-        </form>
+            <input type="text" name="reply" autocomplete="off">
+            <input type="submit" value="Reply" class="btn cyan lighten-2">
+        </div>
+    </form>
+    <h5>Replies</h5>
+
+    <ul class="collection">
+        {{#each replies}}
+        <li class="collection-item">
+            <h5>{{body}}</h5>
+            <p class="right-align" style="color: gray;">{{{owner.username}}}</p>
+            <p class="right-align" style="color: gray;">Posted: {{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}}</p>
+        </li>
+        {{else}}
+        <h4>This post has no replies</h4>
+        {{/each}}
+    </ul>
 </div>
